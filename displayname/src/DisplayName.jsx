@@ -5,12 +5,18 @@ const DisplayName=()=>{
   const[lastName,setLastName]=useState("")
   const[fullName,setFullname]=useState("")
 
-const handleFullname=(e)=>{
-  e.preventDefault()
-  setFullname(`${firstName} ${lastName}`)
-}
+  const handleFullname = (e) => {
+    e.preventDefault();
+    const trimmedFirstName = firstName.trim();
+    const trimmedLastName = lastName.trim();
+    if (trimmedFirstName && trimmedLastName) {
+      setFullName(`${trimmedFirstName} ${trimmedLastName}`);
+    }
+  };
+
   return(
 <div className="mainContainer">
+  <h1>Full Name Display</h1>
   <form onSubmit={handleFullname}>
     <label htmlFor="">first Name:</label>
     <input type="text" value={firstName} id="firstName" onChange={(e)=>setFirstName(e.target.value)} />
@@ -21,7 +27,7 @@ const handleFullname=(e)=>{
     <button type="submit">submit</button>
   </form>
 
- {fullName && <p>full Name: {fullName}</p>}
+ {fullName && <p>Full Name: {fullName}</p>}
 
 </div>
   )
