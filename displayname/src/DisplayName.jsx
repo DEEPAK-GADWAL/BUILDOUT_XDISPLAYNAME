@@ -3,7 +3,7 @@ import React,{useState,useRef} from "react";
 const DisplayName=()=>{
   const[firstName,setFirstName]=useState("")
   const[lastName,setLastName]=useState("")
-  const[fullName,setFullname]=useState("")
+  const[fullName,setFullName]=useState("")
 
   const handleFullname = (e) => {
     e.preventDefault();
